@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\BlogFController;
 use App\Http\Controllers\Auth\LoginPController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\BlogBController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -57,6 +60,12 @@ Route::group(["prefix"=>"admin", "middleware"=>["IsLogin"] ], function(){
         Route::get('/add', [UserController::class,"addindex"])->name("admin.users.add");
         Route::post('/addpost', [UserController::class,"addpost"])->name("admin.users.addpost");
         Route::post('/updatepost', [UserController::class,"updatepost"])->name("admin.users.updatepost");
+    });
+    Route::prefix("blogs")->group(function(){
+        Route::get('/', [BlogBController::class,"index"])->name("admin.blogs.index");
+        Route::get('/create', [BlogBController::class,"create"])->name("admin.blogs.create");
+        Route::post('/store', [BlogBController::class,"store"])->name("admin.blogs.store");
+
     });
 });
 

@@ -25,7 +25,7 @@
                         </td>
                         <td>
                             <a class="btn btn-warning" href="{{ route("admin.users.update", $blog->id ) }}">Güncelle</a>
-                            <a class="btn btn-danger" href="{{ route("admin.users.delete", $blog->id ) }}">Sil</a>
+                            <a class="btn btn-danger" href="{{ route("admin.blogs.destroy", $blog->id ) }}">Sil</a>
                         </td>
                     </tr>
                 @endforeach

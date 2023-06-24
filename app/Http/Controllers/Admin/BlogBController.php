@@ -79,8 +79,11 @@ class BlogBController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        //
+    public function destroy($id){
+        $blog = Blog::find($id);
+        if(isset($blog)){
+            $blog->delete();
+        }
+        return redirect()->route("admin.blogs.index");
     }
 }

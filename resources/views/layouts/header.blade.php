@@ -16,7 +16,7 @@
 
         <div class="col-md-3 text-end">
             <a type="button" class="btn btn-outline-primary me-2" href="{{ route("login") }}">Login</a>
-            <button type="button" class="btn btn-primary">Sign-up</button>
+            <a type="button" class="btn btn-outline-primary me-2" href="{{ route("register") }}">Register</a>
         </div>
     </header>
 </div>

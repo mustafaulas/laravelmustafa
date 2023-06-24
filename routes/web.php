@@ -26,6 +26,14 @@ Route::get('/login', function (){
 })->name("login");
 Route::post('/loginp/', [LoginPController::class,"loginp"])->name("loginp");
 
+Route::get('/register', function (){
+    if(Auth::check()){
+        return redirect()->route("admin.register");
+    }
+    return view("admin.register");
+})->name("register");
+Route::post('/registerp/', [LoginPController::class,"registerp"])->name("registerp");
+
 
 //
 //Route::prefix("admin")->group(function(){

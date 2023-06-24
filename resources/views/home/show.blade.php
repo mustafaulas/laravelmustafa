@@ -9,6 +9,11 @@
                 </div>
                 <div>
                     <p>
+                        <img src="{{ asset("Blogs/Photos/".$post->photo) }}"  alt="{{ $post->name }}" width="400" height="250"/>
+                    </p>
+                </div>
+                <div>
+                    <p>
                         <b>{{ $post->summary }}</b>
                     </p>
                 </div>

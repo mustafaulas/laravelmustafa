@@ -10,7 +10,7 @@
                         <td>name</td>
                         <td>email</td>
                         <td>photo</td>
-                        <td>işlemler</td>
+                        <td>Actions</td>
                     </tr>
                 </thead>
                 <a class="btn btn-primary" href="{{ route("admin.users.add") }}">Yeni Ekle</a>
@@ -21,7 +21,7 @@
                         <td> {{  $user->name }}</td>
                         <td> {{  $user->email }}</td>
                         <td>
-                            <img src="{{ asset("Users/Photos/".$user->photo) }}" width="50">
+                            <img src="{{ asset("Users/Photos/".$user->photo) }}" width="50" alt="{{  $user->name }}">
                         </td>
                         <td>
                             <a class="btn btn-warning" href="{{ route("admin.users.update", $user->id ) }}">Güncelle</a>

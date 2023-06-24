@@ -10,7 +10,7 @@
                     <td>name</td>
                     <td>summary</td>
                     <td>photo</td>
-                    <td>işlemler</td>
+                    <td>Actions</td>
                 </tr>
                 </thead>
                 <a class="btn btn-primary" href="{{ route("admin.blogs.create") }}">Yeni Ekle</a>

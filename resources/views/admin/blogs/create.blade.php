@@ -25,10 +25,9 @@
                 </div>
                 <div class="col-12">
                     <label >
-                        Content
-                        <textarea name="content" id="content" class="form-control">
+                        Contents
 
-                        </textarea>
+                        <textarea class="form-control" name="contents" id="contents"></textarea>
                     </label>
                 </div>
 

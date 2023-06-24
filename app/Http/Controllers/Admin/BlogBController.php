@@ -32,10 +32,12 @@ class BlogBController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->contents);
         $blog = new Blog();
         $blog->name = $request->name;
         $blog->summary =  $request->summary;
-        $blog->content =  $request->content;
+        $blog->content =  $request->contents;
+
         if($request->hasFile("photo")){
             $path = public_path("Blogs/Photos/");
             $name = Str::random(10);

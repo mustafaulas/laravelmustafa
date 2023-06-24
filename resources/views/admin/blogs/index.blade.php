@@ -24,7 +24,7 @@
                             <img src="{{ asset("Blogs/Photos/".$blog->photo) }}" width="50" alt="{{  $blog->name }}">
                         </td>
                         <td>
-                            <a class="btn btn-warning" href="{{ route("admin.users.update", $blog->id ) }}">Güncelle</a>
+                            <a class="btn btn-warning" href="{{ route("admin.blogs.edit", $blog->id ) }}">Güncelle</a>
                             <a class="btn btn-danger" href="{{ route("admin.blogs.destroy", $blog->id ) }}">Sil</a>
                         </td>
                     </tr>

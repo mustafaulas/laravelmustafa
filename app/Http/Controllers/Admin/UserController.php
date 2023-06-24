@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use \Illuminate\Support\Str;
+use function PHPUnit\Framework\isNull;
 
 class UserController extends Controller
 {
@@ -36,7 +37,22 @@ class UserController extends Controller
         if(isset($user)){
             $user->name = $request->name;
             $user->email =  $request->email;
-            $user->password = Hash::make( $request->password);
+            //dd("bu null".(isset($request->password))."ulas");
+            $passwordLength = Str::length($request->password);
+            if($passwordLength>0){
+                $user->password = Hash::make( $request->password);
+            }
+
+            if($request->hasFile("photo")){
+                $path = public_path("Users/Photos/");
+                $name = Str::random(10);
+                $file = $request->file("photo");
+                $name .= $name.$file->getClientOriginalName();
+                //getClientOriginalExtension();
+                $file->move($path,$name);
+                $user->photo =  $name;
+                //dd("burada");
+            }
             $user->save();
         }
         return redirect()->route("admin.users.index");

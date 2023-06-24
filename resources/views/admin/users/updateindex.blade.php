@@ -3,30 +3,30 @@
     <div class="container" style="min-height: 600px">
         <h3>Update User</h3>
         @if(isset($user))
-        <form method="post" action="{{ route("admin.users.updatepost") }}">
+        <form method="post" action="{{ route("admin.users.updatepost") }}" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="id" value="{{ $user->id }}">
             <div class="row">
                 <div class="col-12">
                     <label >
                         Name
-
-                    </label>
-                    <input class="form-control" type="text" name="name" id="name" required value="{{ $user->name }}">
+                    <input class="form-control" type="text" name="name" id="name" required value="{{ $user->name }}"></label>
                 </div>
                 <div class="col-12">
                     <label >
                         email
-
-                    </label>
-                    <input class="form-control" type="email" name="email" id="email" required value="{{ $user->email }}">
+                    <input class="form-control" type="email" name="email" id="email" required value="{{ $user->email }}"></label>
                 </div>
                 <div class="col-12">
                     <label >
                         Password
+                    <input class="form-control" type="password" name="password" id="password" ></label>
+                </div>
 
-                    </label>
-                    <input class="form-control" type="password" name="password" id="password"required >
+                <div class="col-12">
+                    <label >
+                        Photo
+                        <input class="form-control" type="file" name="photo" id="photo"></label>
                 </div>
 
                 <div class="col-12">

@@ -72,9 +72,28 @@ class BlogBController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        $blog = Blog::find($request->id);
+        if(isset($blog)){
+            $blog->name = $request->name;
+            $blog->summary =  $request->summary;
+            $blog->content =  $request->contents;
+            //dd("bu null".(isset($request->password))."ulas");
+
+            if($request->hasFile("photo")){
+                $path = public_path("Blogs/Photos/");
+                $name = Str::random(10);
+                $file = $request->file("photo");
+                $name .= $name.$file->getClientOriginalName();
+                //getClientOriginalExtension();
+                $file->move($path,$name);
+                $blog->photo =  $name;
+                //dd("burada");
+            }
+            $blog->save();
+        }
+        return redirect()->route("admin.blogs.index");
     }
 
     /**

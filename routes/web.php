@@ -67,6 +67,7 @@ Route::group(["prefix"=>"admin", "middleware"=>["IsLogin"] ], function(){
         Route::post('/store', [BlogBController::class,"store"])->name("admin.blogs.store");
         Route::get('/destroy/{id}', [BlogBController::class,"destroy"])->name("admin.blogs.destroy");
         Route::get('/edit/{id}', [BlogBController::class,"edit"])->name("admin.blogs.edit");
+        Route::post('/update', [BlogBController::class,"update"])->name("admin.blogs.update");
 
     });
 });

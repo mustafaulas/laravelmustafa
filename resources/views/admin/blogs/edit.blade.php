@@ -3,8 +3,9 @@
     <div class="container" style="min-height: 600px">
         <h3>Update Blog</h3>
         @if(isset($blog))
-            <form method="post" action="{{ route("admin.users.updatepost") }}" enctype="multipart/form-data">
+            <form method="post" action="{{ route("admin.blogs.update") }}" enctype="multipart/form-data">
                 @csrf
+                <input type="hidden" name="id" value="{{ $blog->id }}">
                 <div class="row">
                     <div class="col-12">
                         <img src="{{ asset("Blogs/Photos/".$blog->photo) }}" width="250" alt="{{  $blog->name }}">
